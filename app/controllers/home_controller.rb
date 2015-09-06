@@ -19,7 +19,7 @@ class HomeController < ApplicationController
     
     def update
         pid = params[:post_id]
-        params[:name].split(" ").each do |x|
+        params[:name].split(" ").compact.each do |x|
             h = Hashtag.new
             h.name = x
             h.post_id = pid
