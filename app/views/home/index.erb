@@ -12,13 +12,13 @@
                 <% post_arr.push(h.name) %>
             <% end %>
             <% post_arr.uniq!.each do |h| %>
-                <%= h %>
+                <%= "#"+h %>
             <% end %>
             <p>이 짤에 <%=post_arr.length%>개의 해시태그가 있습니다.</p>
             
             <form action="/home/update/<%= x.id %>" method="POST">
                 <input type="hidden" name="post_id" value="<%=x.id%>">
-                <input type="text" placeholder="띄어쓰기(' ')로 구분" name="name">
+                <input type="text" placeholder="#빼고 띄어쓰기(' ')로 구분" name="name">
                 <input type="submit" value="go">
             </form>
             <p/>
@@ -30,7 +30,7 @@
     <h1>Hashtags_all</h1>
     <div style="border-bottom: 3px solid black">
         <% @hashtag.each do |x| %>
-            <%= x.name %>
+            <%= "#"+x.name %>
         <% end %>
         <p>해시태그가 <%=@hashtag.length%>번 입력되었습니다.</p>
     </div>
@@ -39,7 +39,7 @@
     <h1>Hashtags_all.uniq-lize</h1>
     <div style="border-bottom: 3px solid black">
         <% @harray.uniq.each do |x| %>
-            <p><%= x %> - <%= @harray.count(x) %></p>
+            <p><%= "#"+x %> - <%= @harray.count(x) %></p>
         <% end %>
         <p>GifHub에 총 <%=@harray.uniq.length%>개의 해시태그가 있습니다.</p>
     </div>
