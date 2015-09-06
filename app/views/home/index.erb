@@ -1,0 +1,51 @@
+<div class="col-sm-6">
+    <h1 style="border-bottom: 3px solid black">POSTs</h1>
+    <% @post.each do |x| %>
+        <div style="border-bottom: 3px solid black">
+            <h3>Title : <%= x.title %></h3>
+            <h3>Context : <%= x.context %></h3>
+            <p/>&nbsp;<p/>
+            <h2>Hashtags</h2>
+            
+            <% post_arr = Array.new %>
+            <% x.hashtags.each do |h| %>
+                <% post_arr.push(h.name) %>
+            <% end %>
+            <% post_arr.uniq.each do |h| %>
+                <%= h %>
+            <% end %>
+            
+            <form action="/home/update/<%= x.id %>" method="POST">
+                <input type="hidden" name="post_id" value="<%=x.id%>">
+                <input type="text" placeholder="띄어쓰기(' ')로 구분" name="name">
+                <input type="submit" value="go">
+            </form>
+            <p/>
+        </div>
+    <% end %>
+</div>
+<div class="col-sm-6">
+    <h1 style="border-bottom: 3px solid black">Hashtags</h1>
+    <h1>Hashtags_all</h1>
+    <div style="border-bottom: 3px solid black">
+        <% @hashtag.each do |x| %>
+            <%= x.name %>
+        <% end %>
+    </div>
+    <p/>&nbsp;<p/>
+    
+    <h1>Hashtags_all.uniq-lize</h1>
+    <div style="border-bottom: 3px solid black">
+        <% @harray.uniq.each do |x| %>
+            <p><%= x %> - <%= @harray.count(x) %></p>
+        <% end %>
+    </div>
+    <p/>&nbsp;<p/>
+    
+    <h1>Input Area</h1>
+    <form action="/home/create" method="POST">
+        <input type="text" placeholder="title" name="title">
+        <input type="text" placeholder="context" name="context">
+        <input type="submit" value="go">
+    </form>
+</div>
