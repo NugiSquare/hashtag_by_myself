@@ -11,7 +11,7 @@
             <% x.hashtags.each do |h| %>
                 <% post_arr.push(h.name) %>
             <% end %>
-            <% post_arr.uniq!.each do |h| %>
+            <% post_arr.uniq.each do |h| %>
                 <%= "#"+h %>
             <% end %>
             <p>이 짤에 <%=post_arr.length%>개의 해시태그가 있습니다.</p>
@@ -38,9 +38,14 @@
     
     <h1>Hashtags_all.uniq-lize</h1>
     <div style="border-bottom: 3px solid black">
-        <% @harray.uniq.each do |x| %>
-            <p><%= "#"+x %> - <%= @harray.count(x) %></p>
-        <% end %>
+        <div>
+            <% @harray.uniq.each do |x| %>
+                <div class="col-sm-4">
+                    <p><%= "#"+x %> - <%= @harray.count(x) %></p>
+                </div>
+            <% end %>
+        </div>
+        <p/>&nbsp;<p/>
         <p>GifHub에 총 <%=@harray.uniq.length%>개의 해시태그가 있습니다.</p>
     </div>
     <p/>&nbsp;<p/>
