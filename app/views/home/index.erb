@@ -14,7 +14,7 @@
             <% post_arr.uniq.each do |h| %>
                 <%= "#"+h %>
             <% end %>
-            <p>이 짤에 <%=post_arr.length%>개의 해시태그가 있습니다.</p>
+            <p>이 짤에 <%=post_arr.uniq.length%>개의 해시태그가 있습니다.</p>
             
             <form action="/home/update/<%= x.id %>" method="POST">
                 <input type="hidden" name="post_id" value="<%=x.id%>">
