@@ -1,7 +1,11 @@
 class HomeController < ApplicationController
+    
     def index
+        #posts
         @post = Post.all.reverse
+        #hashtags typed
         @hashtag = Hashtag.all
+        #hashtag array in string
         @harray = Array.new
         @hashtag.each do |h|
             @harray.push(h.name)
@@ -9,6 +13,7 @@ class HomeController < ApplicationController
     end
     
     def create
+        #creating post
         p = Post.new
         p.title = params[:title]
         p.context = params[:context]
@@ -18,6 +23,7 @@ class HomeController < ApplicationController
     end
     
     def update
+        #creating hashtag
         pid = params[:post_id]
         params[:name].split(" ").compact.each do |x|
             h = Hashtag.new

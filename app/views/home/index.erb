@@ -1,5 +1,6 @@
 <div class="col-sm-6">
     <h1 style="border-bottom: 3px solid black">POSTs</h1>
+    <!-- posts -->
     <% @post.each do |x| %>
         <div style="border-bottom: 3px solid black">
             <h3>Title : <%= x.title %></h3>
@@ -7,10 +8,13 @@
             <p/>&nbsp;<p/>
             <h2>Hashtags</h2>
             
+            <!-- viewing post's hashtags -->
             <% post_arr = Array.new %>
             <% x.hashtags.each do |h| %>
+                <!-- pushing post's hashtags -->
                 <% post_arr.push(h.name) %>
             <% end %>
+            <!-- not showing hashtags using 2 times more -->
             <% post_arr.uniq.each do |h| %>
                 <%= "#"+h %>
             <% end %>
@@ -29,6 +33,7 @@
     <h1 style="border-bottom: 3px solid black">Hashtags</h1>
     <h1>Hashtags_all</h1>
     <div style="border-bottom: 3px solid black">
+        <!-- view hashtags typed -->
         <% @hashtag.each do |x| %>
             <%= "#"+x.name %>
         <% end %>
@@ -36,9 +41,11 @@
     </div>
     <p/>&nbsp;<p/>
     
+    <!-- using harray easy to use methods -->
     <h1>Hashtags_all.uniq-lize</h1>
     <div style="border-bottom: 3px solid black">
         <div>
+            <!-- view hashtags (not showing using 2 times more) -->
             <% @harray.uniq.each do |x| %>
                 <div class="col-sm-4">
                     <p><%= "#"+x %> - <%= @harray.count(x) %></p>
@@ -51,6 +58,7 @@
     <p/>&nbsp;<p/>
     
     <h1>Input Area</h1>
+    <!-- creating post -->
     <form action="/home/create" method="POST">
         <input type="text" placeholder="title" name="title">
         <input type="text" placeholder="context" name="context">
