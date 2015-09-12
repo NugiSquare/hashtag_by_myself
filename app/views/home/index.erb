@@ -1,3 +1,23 @@
+<div class="col-sm-6" style="border-bottom: 3px solid black">
+    <h1>Posting Area</h1>
+    <!-- creating post -->
+    <form action="/home/create" method="POST">
+        <input type="text" placeholder="title" name="title">
+        <input type="text" placeholder="context" name="context">
+        <input type="submit" value="go">
+    </form>
+    <p/>
+</div>
+<div class="col-sm-6" style="border-bottom: 3px solid black">
+    <h1>Search Area</h1>
+    <!-- searching -->
+    <form action="/home/search" method="POST">
+        <input type="text" placeholder="hashtag" name="hashtag">
+        <input type="submit" value="go">
+    </form>
+    <p/>
+</div>
+<div/>
 <div class="col-sm-6">
     <h1 style="border-bottom: 3px solid black">POSTs</h1>
     <!-- posts -->
@@ -56,12 +76,4 @@
         <p>GifHub에 총 <%=@harray.uniq.length%>개의 해시태그가 있습니다.</p>
     </div>
     <p/>&nbsp;<p/>
-    
-    <h1>Input Area</h1>
-    <!-- creating post -->
-    <form action="/home/create" method="POST">
-        <input type="text" placeholder="title" name="title">
-        <input type="text" placeholder="context" name="context">
-        <input type="submit" value="go">
-    </form>
 </div>

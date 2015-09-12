@@ -35,6 +35,17 @@ class HomeController < ApplicationController
         redirect_to '/'
     end
     
-    def delete
+    def search
+        #serching hashtag through post
+        hs = params[:hashtag]
+        
+        @res1 = Hashtag.where("name = ?", hs)
+        @res2 = Array.new
+        @res1.each do |x|
+            tmp = Post.where("id = ?", x.post_id)
+            unless tmp.nil?
+                @res2.push(tmp)
+            end
+        end
     end
 end

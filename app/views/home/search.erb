@@ -1,0 +1,10 @@
+<% unless @res2.nil? %>
+    <% @res2.each do |r| %>
+        <%= r.to_json %><p/>
+        <%= r %><p/>
+        <%#= r.context %>
+        <p/>&nbsp;<p/>
+    <% end %>
+<% else %>
+    <p>There is no results.</p>
+<% end %>
