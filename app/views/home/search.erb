@@ -1,8 +1,8 @@
 <% unless @res2.nil? %>
-    <% @res2.each do |r| %>
-        <%= r.to_json %><p/>
-        <%= r %><p/>
-        <%#= r.context %>
+<!-- <Post::ActiveRecord_Relation> to <Post::> using .first -->
+    <% @res2.each do |x| %>
+        <h3>Title : <%= x.first.title %></h3>
+        <h3>Context : <%= x.first.context %></h3>
         <p/>&nbsp;<p/>
     <% end %>
 <% else %>
